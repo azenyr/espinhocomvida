@@ -1,0 +1,314 @@
+.description-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  .description {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(28, 65, 151);
+    font-weight: 600;
+    background-color: #d7e3fe;
+    padding: 15px 20px;
+    border-radius: 15px;
+    max-width: fit-content;
+
+    .mat-icon {
+      font-size: 20px;
+      height: 20px;
+      width: 20px;
+      color: rgb(28, 65, 151);
+    }
+  }
+}
+
+.title-cards {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(112, 147, 230);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .card {
+    flex: 1 1 400px;
+    max-width: 500px;
+    height: fit-content !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px lightgrey;
+    outline: 0px solid rgb(198, 229, 255);
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &:hover,
+    &:focus-within {
+      transform: scale(1.008);
+      box-shadow: 0px 0px 8px lightgrey !important;
+    }
+
+    &.selected {
+      outline: 4px solid rgb(198, 229, 255);
+    }
+
+    .selected-card-check {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background-color: rgb(57, 126, 182);
+      border-radius: 50px;
+      padding: 8px;
+
+      .mat-icon {
+        font-size: 20px;
+        height: 16px;
+        width: 20px;
+        color: white;
+      }
+    }
+
+    &.table-card {
+      flex: none !important;
+      padding: 0 !important;
+      width: fit-content !important;
+      max-width: 100% !important;
+
+      .mat-table {
+        th {
+          color: rgb(57, 126, 182);
+        }
+
+        td {
+          vertical-align: top !important;
+        }
+      }
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: rgb(57, 126, 182);
+
+      .subtitle {
+        width: 100%;
+        font-size: 12px;
+        color: grey;
+        font-weight: 500;
+      }
+    }
+
+    .card-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 20px;
+
+      .content-list-items {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+
+        .mat-icon {
+          font-size: 6px;
+          height: 8px;
+          width: 8px;
+          color: rgb(57, 126, 182);
+        }
+      }
+
+      .image {
+        width: 100%;
+        max-width: 100px;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .card-footer {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .footer-item {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 5px;
+        font-weight: 500;
+        font-size: 12px;
+        margin-right: 10px;
+        margin-top: 5px;
+
+        .mat-icon {
+          font-size: 20px;
+          height: 20px;
+          width: 20px;
+          color: rgb(57, 126, 182);
+        }
+      }
+    }
+  }
+}
+
+.end-buttons {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+}
+
+// PDF CODE
+
+.pdf-content-wrapper {
+  opacity: 0; // hidden but computed
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .pdf-content {
+    background-color: white !important;
+    height: 210mm !important;
+    width: 297mm !important;
+    box-sizing: border-box;
+    font-size: 10px;
+    padding: 15px;
+
+    .title-cards {
+      font-size: 14px;
+      text-align: left;
+      padding-left: 5px;
+    }
+
+    .pdf-cards-wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+
+      .pdf-column-bigger {
+        flex: 3 1 100px;
+      }
+
+      .pdf-column-smaller {
+        flex: 1 3 100px;
+      }
+    }
+
+    .cards-wrapper {
+      width: fit-content;
+      padding: 10px 0px !important;
+      justify-content: flex-start;
+      gap: 20px;
+
+      .card {
+        flex: 0 0 300px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: none !important;
+        border: 1.5px solid rgb(240, 240, 240);
+
+        &:hover,
+        &:focus-within {
+          transform: scale(1) !important;
+        }
+
+        .card-title {
+          font-size: 11px;
+          margin-bottom: 5px;
+
+          .subtitle {
+            font-size: 9px;
+          }
+        }
+
+        .card-content,
+        .content-list-items {
+          font-size: 9px;
+          gap: 2px;
+
+          .mat-icon {
+            font-size: 4px;
+            height: 6px;
+            width: 6px;
+          }
+        }
+
+        .image {
+          max-width: 50px;
+        }
+
+        .card-footer {
+          margin-top: 5px;
+
+          .footer-item {
+            font-size: 8px !important;
+            margin-right: 5px;
+            margin-top: 5px;
+            gap: 2px;
+
+            .mat-icon {
+              font-size: 10px;
+              height: 10px;
+              width: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .table-wrapper {
+      font-size: 9px;
+
+      tr {
+        height: 25px;
+      }
+
+      th,
+      td {
+        padding: 5px 8px;
+      }
+    }
+  }
+}

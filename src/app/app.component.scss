@@ -1,0 +1,27 @@
+.app-top-banner {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #d7e3fe;
+  color: rgb(28, 65, 151);
+  display: flex;
+  align-items: center;
+  height: 10px;
+
+  .title-text {
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
+
+.main-content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .main-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 40px 0px;
+  }
+}

@@ -1,0 +1,389 @@
+<div
+  class="pdf-content-wrapper"
+  *ngIf="showPDFModal"
+  (click)="switchShowPDFModal('close')"
+>
+  <div class="pdf-content" id="pdf-page1">
+    <div class="title-cards">Atividades de Tempos Livres</div>
+
+    <div class="cards-wrapper" *ngIf="temposLivresTableSelected">
+      <div class="card table-card">
+        <div class="table-wrapper">
+          <table mat-table class="mat-table">
+            <tr>
+              <th>Segunda</th>
+              <th>Terça</th>
+              <th>Quarta</th>
+              <th>Quinta</th>
+              <th>Sexta</th>
+              <th>Sábado</th>
+              <th>Domingo</th>
+            </tr>
+            <tr>
+              <td><b>Manhã</b></td>
+              <td>
+                <b>Manhã 10:30 - 11:30</b> <br />
+                - Ginásio da Mente, Yoga, Chickung, Risoterapia
+              </td>
+              <td>
+                <b>Manhã</b> <br />
+                - ADSE
+              </td>
+              <td><b>Manhã</b></td>
+              <td>
+                <b>Manhã</b> <br />
+                - CEPROF <b>(10:00)</b>
+              </td>
+              <td><b>Manhã</b></td>
+              <td><b>Manhã</b></td>
+            </tr>
+            <tr>
+              <td>
+                <b>Tarde</b> <br />
+                <b>14:00 - 18:00</b> - MyMoyo
+              </td>
+              <td>
+                <b>Tarde</b> <br />
+                <b>15:00 (15/15 dias)</b> <br />
+                Biblioteca de Espinho – Tricotar Histórias
+              </td>
+              <td>
+                <b>Tarde</b> <br />
+                - CEPROF (14:30) <br />
+                - MyMoyo (14h – 18h)
+              </td>
+              <td><b>Tarde</b></td>
+              <td>
+                <b>Tarde</b> <br />
+                - Coro <b>(21:30)</b>
+              </td>
+              <td><b>Tarde</b></td>
+              <td>
+                <b>Tarde</b> <br />
+                Baile sénior <b>(4º de cada mês)</b>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-wrapper">
+      <ng-container *ngFor="let card of cardsAtividadesTemposLivres">
+        <div class="card" *ngIf="card.marked">
+          <div class="card-title">
+            {{ card.title }}
+            <div class="subtitle" *ngIf="card.subtitle">
+              {{ card.subtitle }}
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="content-list-items">
+              <div *ngFor="let item of card.contentList">
+                <mat-icon>circle</mat-icon> {{ item }}
+              </div>
+            </div>
+            <div class="image" *ngIf="card.imageName">
+              <img [src]="'./assets/imgs/' + card.imageName" />
+            </div>
+          </div>
+          <div class="card-footer" *ngIf="card.footerList?.length">
+            <div class="footer-item" *ngFor="let item of card.footerList">
+              <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+              <div>{{ item.title }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="pdf-content" id="pdf-page2">
+    <div class="pdf-cards-wrapper">
+      <div class="pdf-column-bigger">
+        <div class="title-cards">Assistência à Saúde</div>
+
+        <div class="cards-wrapper">
+          <ng-container *ngFor="let card of cardsAssistenciaSaude">
+            <div class="card" *ngIf="card.marked">
+              <div class="card-title">
+                {{ card.title }}
+                <div class="subtitle" *ngIf="card.subtitle">
+                  {{ card.subtitle }}
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="content-list-items">
+                  <div *ngFor="let item of card.contentList">
+                    <mat-icon>circle</mat-icon> {{ item }}
+                  </div>
+                </div>
+                <div class="image" *ngIf="card.imageName">
+                  <img [src]="'./assets/imgs/' + card.imageName" />
+                </div>
+              </div>
+              <div class="card-footer" *ngIf="card.footerList?.length">
+                <div class="footer-item" *ngFor="let item of card.footerList">
+                  <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+                  <div>{{ item.title }}</div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="pdf-column-smaller">
+        <div class="title-cards">Apoio ao Cuidador</div>
+
+        <div class="cards-wrapper">
+          <ng-container *ngFor="let card of cardsApoioCuidador">
+            <div class="card" *ngIf="card.marked">
+              <div class="card-title">
+                {{ card.title }}
+                <div class="subtitle" *ngIf="card.subtitle">
+                  {{ card.subtitle }}
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="content-list-items">
+                  <div *ngFor="let item of card.contentList">
+                    <mat-icon>circle</mat-icon> {{ item }}
+                  </div>
+                </div>
+                <div class="image" *ngIf="card.imageName">
+                  <img [src]="'./assets/imgs/' + card.imageName" />
+                </div>
+              </div>
+              <div class="card-footer" *ngIf="card.footerList?.length">
+                <div class="footer-item" *ngFor="let item of card.footerList">
+                  <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+                  <div>{{ item.title }}</div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="description-wrapper">
+  <div class="description animate-slide-right wait100ms">
+    <mat-icon>info</mat-icon>
+    <span
+      >Selecione os componentes que deseja adicionar à impressão e, de seguida,
+      selecione imprimir ou gerar PDF.</span
+    >
+  </div>
+</div>
+
+<div class="title-cards">Atividades de Tempos Livres</div>
+
+<div class="cards-wrapper animate-slide-down">
+  <div
+    class="card table-card"
+    [ngClass]="{ selected: temposLivresTableSelected }"
+    (click)="markCardTemposLivresTable()"
+  >
+    <div
+      class="selected-card-check animate-scale-in"
+      *ngIf="temposLivresTableSelected"
+    >
+      <mat-icon>check</mat-icon>
+    </div>
+
+    <div class="table-wrapper">
+      <table mat-table class="mat-table">
+        <tr>
+          <th>Segunda</th>
+          <th>Terça</th>
+          <th>Quarta</th>
+          <th>Quinta</th>
+          <th>Sexta</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
+        </tr>
+        <tr>
+          <td><b>Manhã</b></td>
+          <td>
+            <b>Manhã 10:30 - 11:30</b> <br />
+            - Ginásio da Mente, Yoga, Chickung, Risoterapia
+          </td>
+          <td>
+            <b>Manhã</b> <br />
+            - ADSE
+          </td>
+          <td><b>Manhã</b></td>
+          <td>
+            <b>Manhã</b> <br />
+            - CEPROF <b>(10:00)</b>
+          </td>
+          <td><b>Manhã</b></td>
+          <td><b>Manhã</b></td>
+        </tr>
+        <tr>
+          <td>
+            <b>Tarde</b> <br />
+            <b>14:00 - 18:00</b> - MyMoyo
+          </td>
+          <td>
+            <b>Tarde</b> <br />
+            <b>15:00 (15/15 dias)</b> <br />
+            Biblioteca de Espinho – Tricotar Histórias
+          </td>
+          <td>
+            <b>Tarde</b> <br />
+            - CEPROF (14:30) <br />
+            - MyMoyo (14h – 18h)
+          </td>
+          <td><b>Tarde</b></td>
+          <td>
+            <b>Tarde</b> <br />
+            - Coro <b>(21:30)</b>
+          </td>
+          <td><b>Tarde</b></td>
+          <td>
+            <b>Tarde</b> <br />
+            Baile sénior <b>(4º de cada mês)</b>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="cards-wrapper">
+  <div
+    class="card"
+    [ngClass]="{ selected: card.marked }"
+    *ngFor="let card of cardsAtividadesTemposLivres; index as iCard"
+    (click)="markCardAtividadeTemposLivres(iCard)"
+  >
+    <div class="selected-card-check animate-scale-in" *ngIf="card.marked">
+      <mat-icon>check</mat-icon>
+    </div>
+    <div class="card-title">
+      {{ card.title }}
+      <div class="subtitle" *ngIf="card.subtitle">{{ card.subtitle }}</div>
+    </div>
+    <div class="card-content">
+      <div class="content-list-items">
+        <div *ngFor="let item of card.contentList">
+          <mat-icon>circle</mat-icon> {{ item }}
+        </div>
+      </div>
+      <div class="image" *ngIf="card.imageName">
+        <img [src]="'./assets/imgs/' + card.imageName" />
+      </div>
+    </div>
+    <div class="card-footer" *ngIf="card.footerList?.length">
+      <div class="footer-item" *ngFor="let item of card.footerList">
+        <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+        <div>{{ item.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-wrapper">
+  <div class="divider"></div>
+</div>
+
+<div class="title-cards">Assistência à Saúde</div>
+<div class="cards-wrapper">
+  <div
+    class="card"
+    [ngClass]="{ selected: card.marked }"
+    *ngFor="let card of cardsAssistenciaSaude; index as iCard"
+    (click)="markCardAssistenciaSaude(iCard)"
+  >
+    <div class="selected-card-check animate-scale-in" *ngIf="card.marked">
+      <mat-icon>check</mat-icon>
+    </div>
+    <div class="card-title">
+      {{ card.title }}
+      <div class="subtitle" *ngIf="card.subtitle">{{ card.subtitle }}</div>
+    </div>
+    <div class="card-content">
+      <div class="content-list-items">
+        <div *ngFor="let item of card.contentList">
+          <mat-icon>circle</mat-icon> {{ item }}
+        </div>
+      </div>
+      <div class="image" *ngIf="card.imageName">
+        <img [src]="'./assets/imgs/' + card.imageName" />
+      </div>
+    </div>
+    <div class="card-footer" *ngIf="card.footerList?.length">
+      <div class="footer-item" *ngFor="let item of card.footerList">
+        <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+        <div>{{ item.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-wrapper">
+  <div class="divider"></div>
+</div>
+
+<div class="title-cards">Apoio ao Cuidador</div>
+<div class="cards-wrapper">
+  <div
+    class="card"
+    [ngClass]="{ selected: card.marked }"
+    *ngFor="let card of cardsApoioCuidador; index as iCard"
+    (click)="markCardApoioCuidador(iCard)"
+  >
+    <div class="selected-card-check animate-scale-in" *ngIf="card.marked">
+      <mat-icon>check</mat-icon>
+    </div>
+    <div class="card-title">
+      {{ card.title }}
+      <div class="subtitle" *ngIf="card.subtitle">{{ card.subtitle }}</div>
+    </div>
+    <div class="card-content">
+      <div class="content-list-items">
+        <div *ngFor="let item of card.contentList">
+          <mat-icon>circle</mat-icon> {{ item }}
+        </div>
+      </div>
+      <div class="image" *ngIf="card.imageName">
+        <img [src]="'./assets/imgs/' + card.imageName" />
+      </div>
+    </div>
+    <div class="card-footer" *ngIf="card.footerList?.length">
+      <div class="footer-item" *ngFor="let item of card.footerList">
+        <mat-icon *ngIf="item.iconName">{{ item.iconName }}</mat-icon>
+        <div>{{ item.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="end-buttons">
+  <button
+    [disabled]="disableButtons"
+    type="button"
+    mat-fab
+    extended
+    color="primary"
+    (click)="switchShowPDFModal('print')"
+  >
+    <mat-icon>print</mat-icon>
+    Imprimir
+  </button>
+  <button
+    [disabled]="disableButtons"
+    type="button"
+    mat-fab
+    extended
+    color="primary"
+    (click)="switchShowPDFModal('export')"
+  >
+    <mat-icon>description</mat-icon>
+    Exportar PDF
+  </button>
+</div>

@@ -1,1 +1,176 @@
 /* You can add global styles to this file, and also import other style files */
+
+// ANIMATIONS START -----
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInFadeIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRightFadeIn {
+  0% {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownFadeIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  opacity: 0;
+  animation: 0.4s scaleInFadeIn forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: 0.5s fadeIn forwards;
+}
+
+.animate-slide-right {
+  opacity: 0;
+  animation: 0.4s slideRightFadeIn forwards;
+}
+
+.animate-slide-down {
+  opacity: 0;
+  animation: 0.4s slideDownFadeIn forwards;
+}
+
+.wait100ms {
+  animation-delay: 100ms;
+}
+
+// ANIMATIONS END -----
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Noto Sans", Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.table-wrapper {
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0px 0px 4px lightgrey;
+  border-radius: 8px;
+  overflow-x: auto !important;
+
+  .mat-table {
+    width: fit-content;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-spacing: 0px;
+
+    th {
+      text-align: center;
+      outline: 1px solid rgb(240, 240, 240);
+      padding: 0px 10px;
+      background-color: white;
+      vertical-align: middle;
+
+      .mat-icon {
+        color: rgb(57, 126, 182);
+        font-size: 18px;
+        height: 17px;
+        width: 17px;
+      }
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    tr {
+      height: 45px;
+      background-color: white;
+      transition: 0.2s background-color;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgb(245, 245, 245);
+    }
+  }
+}
+
+.divider-wrapper {
+  margin: 20px 0px;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .divider {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(236, 241, 255);
+    height: 4px;
+    border-radius: 8px;
+  }
+}
+
+.mdc-fab {
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+
+  .mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    margin-right: 0px !important;
+  }
+}

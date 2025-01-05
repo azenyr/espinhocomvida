@@ -1,0 +1,16 @@
+.loading-card {
+  padding: 20px 25px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  pointer-events: none;
+}
