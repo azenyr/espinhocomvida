@@ -25,6 +25,15 @@
   }
 }
 
+.top-buttons-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 .title-cards {
   font-size: 24px;
   font-weight: 700;
@@ -265,7 +274,7 @@
 
         .card-content,
         .content-list-items {
-          font-size: 9px;
+          font-size: 10px;
           gap: 2px;
 
           .mat-icon {

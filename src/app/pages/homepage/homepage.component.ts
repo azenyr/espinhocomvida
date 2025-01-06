@@ -392,4 +392,34 @@ export class HomepageComponent {
         this.disableButtons = false;
       });
   }
+
+  selectDeselectAll(newState: boolean) {
+    this.cardsApoioCuidador = this.cardsApoioCuidador.map((item) => {
+      return {
+        ...item,
+        ...{
+          marked: newState,
+        },
+      };
+    });
+    this.cardsAssistenciaSaude = this.cardsAssistenciaSaude.map((item) => {
+      return {
+        ...item,
+        ...{
+          marked: newState,
+        },
+      };
+    });
+    this.cardsAtividadesTemposLivres = this.cardsAtividadesTemposLivres.map(
+      (item) => {
+        return {
+          ...item,
+          ...{
+            marked: newState,
+          },
+        };
+      }
+    );
+    this.temposLivresTableSelected = newState;
+  }
 }

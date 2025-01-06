@@ -179,6 +179,31 @@
   </div>
 </div>
 
+<div class="top-buttons-wrapper">
+  <button
+    [disabled]="disableButtons"
+    type="button"
+    mat-fab
+    extended
+    color="primary"
+    (click)="selectDeselectAll(true)"
+  >
+    <mat-icon>check_box</mat-icon>
+    Selecionar Tudo
+  </button>
+  <button
+    [disabled]="disableButtons"
+    type="button"
+    mat-fab
+    extended
+    color="primary"
+    (click)="selectDeselectAll(false)"
+  >
+    <mat-icon>check_box_outline_blank</mat-icon>
+    Desselecionar Tudo
+  </button>
+</div>
+
 <div class="title-cards">Atividades de Tempos Livres</div>
 
 <div class="cards-wrapper animate-slide-down">
