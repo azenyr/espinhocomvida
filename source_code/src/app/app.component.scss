@@ -21,7 +21,23 @@
 
   .main-content {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1800px;
     margin: 40px 0px;
+  }
+}
+
+.footer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 10px;
+  opacity: 0.6;
+  font-weight: 600;
+  color: rgb(12, 46, 126);
+
+  a {
+    color: rgb(12, 46, 126) !important;
   }
 }

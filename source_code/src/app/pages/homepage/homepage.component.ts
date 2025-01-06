@@ -6,6 +6,7 @@ import { ExportPdfService } from '../../../services/export-pdf.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Dialog } from '@angular/cdk/dialog';
 import { LoadingDialogComponent } from '../../components/loading-dialog/loading-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export interface footerItem {
   title: string;
@@ -23,7 +24,13 @@ export interface card {
 
 @Component({
   selector: 'app-homepage',
-  imports: [CommonModule, MatIconModule, MatButtonModule, MatDialogModule],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatTooltipModule,
+  ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
@@ -34,7 +41,7 @@ export class HomepageComponent {
 
   cardsAssistenciaSaude: card[] = [
     {
-      title: 'Cruz Vermelha Portuguesa',
+      title: 'Delegação Cruz Vermelha Portuguesa Espinho',
       contentList: [
         'Sistema de alarme para idosos sozinhos.',
         'Ajudas técnicas, apoio alimentar, vestuário.',
@@ -332,12 +339,44 @@ export class HomepageComponent {
         },
       ],
     },
+    {
+      title: 'Walking Football',
+      contentList: [
+        'Futebol em passo de caminhada para pessoas a partir dos 50 anos de idade.',
+      ],
+      footerList: [
+        {
+          iconName: 'house',
+          title: 'Nave polivalente de Espinho',
+        },
+        {
+          iconName: 'schedule',
+          title: 'Segundas-feiras às 15:00',
+        },
+      ],
+    },
   ];
 
   constructor(
     private exportPDFservice: ExportPdfService,
     private dialog: Dialog
   ) {}
+
+  get hasAnySelectedAssistenciaSaude(): boolean {
+    return this.cardsAssistenciaSaude.find((item) => item.marked)
+      ? true
+      : false;
+  }
+
+  get hasAnySelectedApoioCuidador(): boolean {
+    return this.cardsApoioCuidador.find((item) => item.marked) ? true : false;
+  }
+
+  get hasAnySelectedAtividTemposLivres(): boolean {
+    return this.cardsAtividadesTemposLivres.find((item) => item.marked)
+      ? true
+      : false;
+  }
 
   markCardAssistenciaSaude(iCard: number) {
     this.cardsAssistenciaSaude[iCard].marked =

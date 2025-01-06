@@ -1,1 +1,14 @@
-<p>page404 works!</p>
+<div class="wrapper-page404 animate-slide-down">
+  <div class="logo404">404</div>
+  <h2 class="message">
+    <span>Esta página não foi encontrada.</span>
+  </h2>
+  <div class="buttons animate-scale-in wait100ms">
+    <button mat-fab extended color="primary" [routerLink]="['/']">
+      <mat-icon>home</mat-icon> Página Inicial
+    </button>
+    <button mat-fab extended color="primary" (click)="refreshPage()">
+      <mat-icon>refreshd</mat-icon> Tentar Novamente
+    </button>
+  </div>
+</div>

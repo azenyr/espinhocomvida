@@ -40,7 +40,8 @@
             <tr>
               <td>
                 <b>Tarde</b> <br />
-                <b>14:00 - 18:00</b> - MyMoyo
+                <b>14:00 - 18:00</b> - MyMoyo <br />
+                <b>15:00</b> - Walking Football
               </td>
               <td>
                 <b>Tarde</b> <br />
@@ -251,7 +252,8 @@
         <tr>
           <td>
             <b>Tarde</b> <br />
-            <b>14:00 - 18:00</b> - MyMoyo
+            <b>14:00 - 18:00</b> - MyMoyo <br />
+            <b>15:00</b> - Walking Football
           </td>
           <td>
             <b>Tarde</b> <br />
@@ -390,7 +392,13 @@
 
 <div class="end-buttons">
   <button
-    [disabled]="disableButtons"
+    [disabled]="
+      disableButtons ||
+      (!hasAnySelectedAssistenciaSaude &&
+        !hasAnySelectedApoioCuidador &&
+        !hasAnySelectedAtividTemposLivres &&
+        !temposLivresTableSelected)
+    "
     type="button"
     mat-fab
     extended
@@ -401,7 +409,13 @@
     Imprimir
   </button>
   <button
-    [disabled]="disableButtons"
+    [disabled]="
+      disableButtons ||
+      (!hasAnySelectedAssistenciaSaude &&
+        !hasAnySelectedApoioCuidador &&
+        !hasAnySelectedAtividTemposLivres &&
+        !temposLivresTableSelected)
+    "
     type="button"
     mat-fab
     extended

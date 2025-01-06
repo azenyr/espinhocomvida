@@ -1,0 +1,32 @@
+.wrapper-page404 {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo404 {
+    font-size: 52px;
+    font-weight: 700;
+    color: rgb(65, 85, 187);
+  }
+
+  .message {
+    color: rgb(56, 70, 143);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .buttons {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
