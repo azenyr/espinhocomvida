@@ -7,6 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { Dialog } from '@angular/cdk/dialog';
 import { LoadingDialogComponent } from '../../components/loading-dialog/loading-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HorarioTableComponent } from './horario-table/horario-table.component';
 
 export interface footerItem {
   title: string;
@@ -30,6 +31,7 @@ export interface card {
     MatButtonModule,
     MatDialogModule,
     MatTooltipModule,
+    HorarioTableComponent,
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
@@ -41,7 +43,7 @@ export class HomepageComponent {
 
   cardsAssistenciaSaude: card[] = [
     {
-      title: 'Delegação Cruz Vermelha Portuguesa Espinho',
+      title: 'Delegação da Cruz Vermelha Portuguesa de Espinho',
       contentList: [
         'Sistema de alarme para idosos sozinhos.',
         'Ajudas técnicas, apoio alimentar, vestuário.',
@@ -61,7 +63,7 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Associação de Diabéticos',
+      title: 'Associação de Diabéticos de Espinho',
       contentList: [
         'Sistema de alarme para idosos sozinhos.',
         'Ajudas técnicas, apoio alimentar, vestuário.',
@@ -83,7 +85,7 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Associação desenvolvimento concelho de Espinho (ADCE)',
+      title: 'Associação de Desenvolvimento do Concelho de Espinho (ADCE)',
       contentList: ['Banco Alimentar.'],
       imageName: 'vegetables.png',
       footerList: [
@@ -106,7 +108,8 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Ginásio da Mente',
+      title: 'Associação de Enfermagem "O Toque"',
+      subtitle: 'Ginásio da Mente',
       contentList: [
         'Espaço destinado a qualquer pessoa que queira exercitar a mente.',
         'Prevenção da demência no idoso.',
@@ -125,11 +128,11 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Liga dos Amigos ACES Espinho / Gaia',
+      title: 'Liga dos Amigos do ACES Espinho / Gaia',
       subtitle: '(Laces Espinho – Gaia)',
       contentList: [
-        'Ajudas técnicas (cadeiras de rodas, camas articuladas, andarilhos, canadianas, cadeirões descanso).',
-        'Voluntariado para apoio domiciliário para combater solidão e isolamento social, apoio nas Unidades de Saúde ACES Espinho / Gaia. ',
+        'Ajudas técnicas (cadeiras de rodas, camas articuladas, andarilhos, canadianas, cadeirões de descanso).',
+        'Voluntariado para apoio domiciliário para combater solidão e isolamento social, apoio nas Unidades de Saúde da ULSGE.',
       ],
       imageName: 'handicap.png',
       footerList: [
@@ -178,9 +181,9 @@ export class HomepageComponent {
 
   cardsAtividadesTemposLivres: card[] = [
     {
-      title: 'MyMoyo',
+      title: 'Associação Social, Cultural e Recreativa MyMoyo',
       contentList: [
-        'Trabalho de Costura voluntário para famílias carenciadas em países de desenvolvimento.',
+        'Trabalhos de costura voluntário para enviar para famílias carenciadas em países em vias de desenvolvimento.',
       ],
       footerList: [
         {
@@ -194,7 +197,8 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Ginásio da Mente',
+      title: 'Associação de Enfermagem "O Toque"',
+      subtitle: 'Ginásio da Mente',
       contentList: [
         'Yoga – terça feira 10:30 – 11:30.',
         'Atividades todos os dias para idosos.',
@@ -216,7 +220,7 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Associação desenvolvimento concelho de Espinho (ADCE)',
+      title: 'Associação de Desenvolvimento do Concelho de Espinho (ADCE)',
       contentList: [
         'Centro comunitário – Acompanhamento psicossocial, animação sociocultura, promoção de competências em adultos.',
       ],
@@ -240,28 +244,37 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Espinho Ação Social',
-      contentList: ['Baile sénior.'],
+      title: 'Município de Espinho - Bailes Séniores',
+      contentList: [
+        'Baile sénior.',
+        'Espaço de convívio, com animação musical e dança.',
+      ],
       imageName: 'dancers.png',
       footerList: [
         {
           iconName: 'house',
-          title: 'Piscina Solário Atlântico',
+          title: 'Salão Nobre da Piscina Solário Atlântico',
+        },
+        {
+          iconName: 'phone',
+          title: '227 321 256',
         },
         {
           iconName: 'schedule',
-          title: 'Quarto domingo de cada mês',
+          title: '3º domingo de cada mês',
         },
       ],
     },
     {
-      title: 'Tricotar Histórias',
-      contentList: ['Trabalho de costura.'],
+      title: 'Município de Espinho - Tricotar Histórias',
+      contentList: [
+        'Espaço de partilha de pessoas que praticam tricot, crochet, ou outras técnicas de trabalho com agulhas, conciliado com partilha de sabores, leituras e memórias.',
+      ],
       imageName: 'tricot.png',
       footerList: [
         {
           iconName: 'house',
-          title: 'Biblioteca de Espinho',
+          title: 'Biblioteca Municipal de Espinho',
         },
         {
           iconName: 'phone',
@@ -310,10 +323,10 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Liga dos Amigos ACES Espinho / Gaia',
+      title: 'Liga dos Amigos do ACES Espinho / Gaia',
       subtitle: '(Laces Espinho – Gaia)',
       contentList: [
-        'Voluntariado para apoio domiciliário para combater solidão e isolamento social, apoio nas Unidades de Saúde ACES Espinho / Gaia. ',
+        'Voluntariado para apoio domiciliário para combater solidão e isolamento social, apoio nas Unidades de Saúde da ULSGE. ',
       ],
       imageName: 'handicap.png',
       footerList: [
@@ -340,7 +353,7 @@ export class HomepageComponent {
       ],
     },
     {
-      title: 'Walking Football',
+      title: 'Município de Espinho - Walking Football',
       contentList: [
         'Futebol em passo de caminhada para pessoas a partir dos 50 anos de idade.',
       ],
